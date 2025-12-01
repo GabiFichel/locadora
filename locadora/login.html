@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <style>@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login • Locadora Fichel</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            font-family: "Rubik", sans-serif;
+        }
+        .login-wrapper {
+            max-width: 420px;
+            margin: 80px auto;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-family: "Rubik", sans-serif;
+        }
+
+        .input-login {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+            background: var(--card);
+            color: var(--text);
+            font-family: "Rubik", sans-serif;
+        }
+    </style>
+
+    <script>
+        function fazerLogin() {
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+
+            if (!email || !senha) {
+                alert("Preencha todos os campos.");
+                return;
+            }
+
+            if (email === "gabrielafichel@gmail.com" && senha === "1234") {
+                localStorage.setItem("logado", "true");
+                window.location.href = "carros.html";
+            } else {
+                alert("Email ou senha incorretos.");
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<header class="header">
+    <div class="marca">
+        <img src="assets/images/logo-white.png" class="logo">
+        <h1>Locadora Fichel</h1>
+    </div>
+
+    <nav class="navegacao">
+        <a href="index.html">Início</a>
+        <a href="carros.html">Carros</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+</header>
+
+<div class="container login-wrapper">
+    <div class="login-card">
+        <h2 class="login-title">Entrar</h2>
+
+        <label>Email:</label>
+        <input type="email" id="email" class="input-login" placeholder="Digite seu email">
+
+        <label style="margin-top:15px;">Senha:</label>
+        <input type="password" id="senha" class="input-login" placeholder="Digite sua senha">
+
+        <br><br>
+        <button class="btn" style="width:100%;" onclick="fazerLogin()">Acessar</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    © 2025 Locadora Fichel — Todos os direitos reservados
+</footer>
+
+</body>
+</html>

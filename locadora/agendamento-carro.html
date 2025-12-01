@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Carro • Locadora Fichel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+
+    <script>
+        async function carregarCarroSelecionado() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+
+            const dados = await carregarDados(URL_CARROS);
+            const carro = dados.find(c => String(c.ID) === id);
+
+            if (!carro) return;
+
+            document.getElementById("carroFoto").src = carro.Imagem;
+            document.getElementById("carroTitulo").innerText = carro.Modelo;
+            document.getElementById("carroInfo").innerText = `${carro.Marca} • ${carro.Ano} • ${carro.Cor}`;
+        }
+    </script>
+</head>
+<body onload="carregarCarroSelecionado()">
+
+<header class="header">
+    <div class="marca">
+        <img src="assets/images/logo-white.png" class="logo">
+        <h1>Agendamento</h1>
+    </div>
+
+    <nav class="navegacao">
+        <a href="index.html">Início</a>
+        <a href="carros.html">Carros</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <img id="carroFoto" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h2 id="carroTitulo"></h2>
+        <p id="carroInfo" class="muted"></p>
+
+        <br>
+        <h3>Finalizar Agendamento</h3>
+
+        <label>Cliente:</label>
+        <input type="text" placeholder="Nome do cliente" class="input">
+
+        <label>Data de retirada:</label>
+        <input type="date" class="input">
+
+        <label>Data de devolução:</label>
+        <input type="date" class="input">
+
+        <br><br>
+        <button class="btn">Confirmar agendamento</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    © 2025 Locadora Fichel — Todos os direitos reservados
+</footer>
+
+</body>
+</html>

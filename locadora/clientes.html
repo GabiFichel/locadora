@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes • Locadora Fichel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+</head>
+<body onload="carregarClientes()">
+
+<header class="header">
+    <div class="marca">
+        <img src="assets/images/logo-white.png" class="logo">
+        <h1>Clientes</h1>
+    </div>
+
+    <nav class="navegacao">
+        <a href="index.html">Início</a>
+        <a href="carros.html">Carros</a>
+        <a href="clientes.html" class="active">Clientes</a>
+        <a href="agendamentos.html">Agendamentos</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Lista de Clientes</h2>
+
+    <div class="card">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="clientesTabela"></tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="site-footer">
+    © 2025 Locadora Fichel — Todos os direitos reservados
+</footer>
+
+</body>
+</html>
