@@ -1,6 +1,6 @@
 :root {
-    --bg: #0d0f14;
-    --card: #141820;
+    --bg: #191c24;
+    --card: #14171d;
     --text: #f0f3f7;
     --muted: #8b92a1;
     --primary: #4d6fff;
@@ -24,22 +24,35 @@
 html, body {
     height: 100%;
     font-family: "Rubik", sans-serif;
-    background: var(--bg);
     color: var(--text);
-    flex-direction: column;
+    
 }
-
-
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+}
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+    filter: brightness(40%); 
+}
 .header {
-    background: #0b0d11;
-    padding: 18px 28px;
+    background: var(--bg), 0.8;
+    padding: 14px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 2;
 }
 
 .marca {
@@ -49,19 +62,19 @@ html, body {
 }
 
 .logo {
-    height: 42px;
+    height: 100px;
     filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.08));
 }
 
 .navegacao {
     display: flex;
-    gap: 26px;
+    gap: 20px;
 }
 
 .navegacao a {
     color: var(--muted);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: var(--transition);
 }
 
@@ -77,15 +90,6 @@ html, body {
     padding: 0 24px;
 }
 
-.card {
-    background: var(--card);
-    padding: 28px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-
-
 .btn {
     background: var(--primary);
     color: white;
@@ -95,6 +99,7 @@ html, body {
     border: none;
     cursor: pointer;
     transition: var(--transition);
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -104,7 +109,7 @@ html, body {
 
 input, select, textarea {
     width: 100%;
-    background: #0f1217;
+    background: var(--card);
     padding: 12px 14px;
     border-radius: 10px;
     border: 1px solid var(--border);
@@ -117,21 +122,63 @@ input:focus {
     border-color: var(--primary);
     outline: none;
 }
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
+  z-index: 1;
+  padding: 40px 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  
+  width: 80%;
+  max-width: 800px;
+  margin: 120px auto; 
+}
+.card h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5em; 
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+
+.card p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+}
 .car-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .car-card {
     background: var(--card);
-    padding: 14px;
     border-radius: var(--radius);
     border: 1px solid var(--border);
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    background-color: #333; 
+    color: white; 
+    padding: 20px;
+    width: 250px; 
+    height: 300px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .car-card:hover {
@@ -196,4 +243,29 @@ input:focus {
     text-align: center;
     font-size: 26px;
     margin-bottom: 22px;
+    
+}
+.agendamento-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.agendamento-card {
+    background: var(--card);
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+    text-align: center;
+    border: 1px solid var(--border);
+    animation: fadeIn .4s ease;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
